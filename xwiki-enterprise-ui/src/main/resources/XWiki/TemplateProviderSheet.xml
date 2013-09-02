@@ -213,6 +213,7 @@
 $xwiki.jsx.use('XWiki.TemplateProviderSheet')##
 #set($providerObj = $doc.getObject("XWiki.TemplateProviderClass"))
 #if ($xcontext.action != 'view')
+{{html}}&lt;input type="hidden" name="xvalidate" value="1" /&gt;{{/html}}
   ; {{translation key="xe.templateprovider.name"/}}
   : {{html}}&lt;input type="text" value="$!{doc.getTitle()}" name="title" /&gt;{{/html}}
 #end
@@ -220,15 +221,15 @@ $xwiki.jsx.use('XWiki.TemplateProviderSheet')##
 #if ($xcontext.action == 'inline' || $xcontext.action == 'edit')
 
   {{translation key="xe.templateprovider.templatename.info"/}}
-  : $doc.display('name')
+  : {{html}}&lt;input type="text" class="required" name="XWiki.TemplateProviderClass_0_name" id="XWiki.TemplateProviderClass_0_name" size="30" /&gt;{{/html}} #if($context.validationStatus.errors.contains('XWiki.TemplateProviderClass.name.validationMessage'))(% class='LV_validation_message LV_invalid' %){{translation key="XWiki.TemplateProviderClass.name.validationMessage"/}}#end
+
 #else
-  ## get the property and render it in the context of the current document
-  #set($providerName = $providerObj.getProperty('name').value)
-  : {{{{{translation key="$providerName"/}}}}}
+  : $doc.display('name')
 #end
 ; {{translation key="xe.templateprovider.template"/}}
 #if ($xcontext.action == 'inline' || $xcontext.action == 'edit')
-  : $doc.display('template')
+  : {{html}}&lt;input type="text" class="required" name="XWiki.TemplateProviderClass_0_template" value="" id="XWiki.TemplateProviderClass_0_template" size="30" autocomplete="off"&gt;{{/html}} #if($context.validationStatus.errors.contains('XWiki.TemplateProviderClass.name.validationMessage'))(% class='LV_validation_message LV_invalid' %){{translation key="XWiki.TemplateProviderClass.name.validationMessage"/}}#end
+
 #else
   #set($templateDocName = $providerObj.getProperty('template').value)
   : [[$templateDocName&gt;&gt;$templateDocName]]

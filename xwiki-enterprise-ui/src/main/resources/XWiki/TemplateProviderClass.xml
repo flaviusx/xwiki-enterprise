@@ -62,8 +62,8 @@
       <prettyName>name</prettyName>
       <size>30</size>
       <unmodifiable>0</unmodifiable>
-      <validationMessage/>
-      <validationRegExp/>
+      <validationMessage>XWiki.TemplateProviderClass.name.validationMessage</validationMessage>
+      <validationRegExp>/^.{2,255}$/</validationRegExp>
       <classType>com.xpn.xwiki.objects.classes.StringClass</classType>
     </name>
     <spaces>
@@ -99,8 +99,8 @@
       <prettyName>template</prettyName>
       <size>30</size>
       <unmodifiable>0</unmodifiable>
-      <validationMessage/>
-      <validationRegExp/>
+      <validationMessage>XWiki.TemplateProviderClass.template.validationMessage</validationMessage>
+      <validationRegExp>/^.{2,255}$/</validationRegExp>
       <classType>com.xpn.xwiki.objects.classes.StringClass</classType>
     </template>
     <type>
